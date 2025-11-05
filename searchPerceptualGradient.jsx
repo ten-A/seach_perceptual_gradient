@@ -5,6 +5,11 @@ function pgChecker()
     alert("実行する前に保存しといて下さい。");
     return;
   }
+  if (app.activeDocument.documentColorSpace==DocumentColorSpace.RGB)
+  {
+    alert("RGBモードのドキュメントの為処理を中止します。");
+    return;
+  }
   var doc = app.activeDocument;
   var originalPath = doc.fullName;
   var copyFile = new File("~/Desktop/" + doc.name.replace(/\.[^\.]+$/, "") + "_copy.ai");
